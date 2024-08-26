@@ -1,41 +1,32 @@
-## Telegram Bot Template
+# Телеграм бот для отслеживания дней рождения
 
-This is a simple template for creating a Telegram bot using Python. It uses the `pyTelegramBotAPI` library for interaction with Telegram's API and SQLAlchemy for database interactions. The bot logs messages, saves user details, and can be deployed using Docker.
+Это бот для Telegram, написанный на Python, который помогает вам отслеживать дни рождения ваших друзей. Он позволяет устанавливать напоминания о днях рождения и хранит информацию о подарках, которые ваши друзья запросили.
 
-## Structure
+## Установка, конфигурация и запуск бота
 
-The project is structured as follows:
+1. Перейдите в каталог проекта:
+   ```
+   cd telegram_bot_birthday
+   ```
+2. Установите необходимые пакеты Python:
+   ```
+   pip install .
+   ```
+3. Создайте файл `.env` в корневом каталоге проекта и добавьте туда токен вашего бота Telegram следующим образом:
+   ```
+   BOT_TOKEN=your_bot_token_here
+   ```
+   Замените `your_bot_token_here` на ваш реальный токен бота.
 
-`main.py` - The main file that defines and runs the bot.
+4. По необходимости измените конфигурацию сообшений бота в файле `src/telegram_bot_birthday/conf/config.py`.
 
-`service/` - The module that contains a class with services for the bot.
+5. Запустите бота:
+   ```
+   python src/telegram_bot_birthday/main.py
+   ```
+   
+## Команды
 
-`conf/config.py` - The file that contains the configuration for the bot and the application.
-
-`conf/logging_config.py` - The file that contains the configuration for the logging.
-
-`api/telegram.py` - The file that handles interactions with the Telegram API.
-
-`db/database.py` - The file that handles interactions with the PostgreSQL database.
-
-`tests/` - The directory that contains the tests for the application.
-
-`Dockerfile` - The file that defines the Docker container for this application.
-
-## Setup
-
-1. Clone this repository.
-2. Create a `.env` file in the root directory and add your database connection string and bot token.
-3. Install the dependencies with `pip install .`.
-4. Run the bot with `python src/telegrab_bot/main.py`.
-
-## Docker
-
-To run this application in a Docker container, follow these steps:
-
-1. Build the Docker image with `docker build -t telegram-bot .`.
-2. Run the Docker container with `docker run -p 80:80 telegram-bot`.
-
-## Examples of use
-
-In branches to this repository, you can find examples of use of this template.
+- `/start` или `/help`: Показывает текст справки.
+- `/enter_reminder`: Начинает процесс ввода нового напоминания о дне рождения.
+- `/get_reminders`: Показывает все ваши текущие напоминания о днях рождения.
