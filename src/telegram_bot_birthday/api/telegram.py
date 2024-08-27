@@ -123,4 +123,4 @@ def send_birthday_reminder(bot):
 
 def start_bot():
     logging.info(f"bot `{str(bot.get_me().username)}` has started")
-    bot.polling()
+    bot.infinity_polling()
